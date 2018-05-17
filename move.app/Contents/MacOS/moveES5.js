@@ -10,35 +10,59 @@ var finch = new Finch();
 // Don't change anything above the line
 
 // Our first set of code will make the Finch move forward w/ a power of 100 in each wheel for 1 second then move backwards with the same power
+// finch.setWheelPower(100, 100);
+// wait(1000);
+// finch.setWheelPower(-100, -100);
+// wait(1000);
+// finch.setWheelPower(0, 0);
+//
+// // Have the Finch repeat the motion of moving back and forth 3 more times
+// for (let number = 1; number <= 3; number += 1){
+//   finch.setWheelPower(100, 100);
+//   wait(1000);
+//   finch.setWheelPower(-100, -100);
+//   wait(1000);
+//   finch.setWheelPower(0, 0);
+// }
+//
+//
+// // Now make the Finch turn to the right for half a second
+// finch.setWheelPower(0, 100);
+// wait(500);
+// finch.setWheelPower(0, 0);
+//
+//
+// // Now make the Finch turn to the left for half a second
+// finch.setWheelPower(100, 0);
+// wait(500);
+// finch.setWheelPower(0, 0);
+//
+//
+// // Now make the Finch turn to the right for half a second but make it turn more quickly than before
+// finch.setWheelPower(0, 200);
+// wait(500);
+// finch.setWheelPower(0, 0);
+//
+//
+// // Now make the Finch turn to the left for half a second but make it turn more quickly than before
+// finch.setWheelPower(200, 0);
+// wait(500);
+// finch.setWheelPower(0, 0);
+
+
+// Now create a maze with at least two turns and have the Finch follow that path
+
 finch.setWheelPower(100, 100);
 wait(1000);
-finch.setWheelPower(-100, -100);
+finch.setWheelPower(100, 0);
+wait(1000);
+finch.setWheelPower(100, 100);
+wait(1000);
+finch.setWheelPower(0, 100);
+wait(1000);
+finch.setWheelPower(100, 100);
 wait(1000);
 finch.setWheelPower(0, 0);
-
-// Now make the Finch turn to the right for half a second
-
-
-// Now make the Finch turn to the left for half a second
-
-
-// We will now have the Finch move back and forth until something is put in front of it to set off its obstacle sensors
-while (!finch.getObstacleSensors().left && !finch.getObstacleSensors().right) {
-    finch.setWheelPower(100, 100);
-    wait(1000);
-    finch.setWheelPower(-100, -100);
-    wait(1000);
-    finch.setWheelPower(0, 0);
-}
-
-// We will now have the Finch move back and forth until something is put in front of it to set off its obstacle sensors
-while (finch.getLightSensors().left < 150 && finch.getLightSensors().right < 150) {
-    finch.setWheelPower(30, 0);
-    wait(1000);
-    finch.setWheelPower(0, -30);
-    wait(1000);
-    finch.setWheelPower(0, 0);
-}
 
 function wait(msecs, buffer) {
     var buf = buffer ? buffer : 100;
